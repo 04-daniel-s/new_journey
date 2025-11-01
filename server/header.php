@@ -17,6 +17,7 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -26,29 +27,22 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
 
 <body class="d-flex flex-column min-vh-100">
 
-<nav role="navigation"
-     class="navbar navbar-dark bg-dark fixed-top w-100 d-flex justify-content-center align-content-center">
+<nav aria-label="Navigation" role="navigation" style="height: 10vh"
+     class="navbar navbar-light bg-light fixed-top w-100 d-flex justify-content-center align-content-center">
+
     <div class="row w-100">
-        <div class="col-10 d-flex justify-content-end align-content-center">
-            <h1 style="letter-spacing: 0.5rem" class="navbar-brand navbar-dark text-uppercase text-white m-auto">New Journey</h1>
+        <div class="col-10 col-md-12 d-flex justify-content-end align-content-center">
+             <h1 aria-label="New Journey" style="letter-spacing: 0.5rem" class="navbar-brand navbar-light text-uppercase text-dark m-auto">New Journey</h1>
         </div>
 
         <div class="col-2">
-            <button class="d-lg-none btn btn-dark bg-dark" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#burger-buttons" aria-controls="offcanvasExample">
+            <button aria-label="Menü" class="d-md-none btn btn-light bg-light" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#burger-buttons" aria-controls="burger-buttons-tab">
                 <span class="navbar-toggler-icon navbar-toggler navbar-light"></span>
             </button>
         </div>
     </div>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="burger-buttons" aria-labelledby="burger-buttons-tab">
-        <div class="offcanvas-header bg-dark">
-            <h5 class="offcanvas-title text-white" id="burger-buttons-tab">Konto</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="close"></button>
-        </div>
-        <div class="offcanvas-body bg-dark d-flex flex-column gap-5">
-            <button class="btn btn-outline-secondary">Anmelden</button>
-            <button class="btn btn-outline-secondary">Registrieren</button>
-        </div>
-    </div>
+    /*TODO: login and register button */
+    <?php include 'components/burger_window.php'; ?>
 </nav>
