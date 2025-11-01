@@ -6,24 +6,6 @@ body {
     font-family: 'Inter', sans-serif !important;
 }
 
-@media (min-width: 576px) {
-    .hero-image {
-        height: 30vh;
-    }
-}
-
-@media (min-width: 992px) {
-    .hero-image {
-        height: 40vh;
-    }
-}
-
-@media (min-width: 1200px) {
-    .hero-image {
-        height: 50vh;
-    }
-}
-
 .hero-image {
     position: relative;
     width: 100vw;
