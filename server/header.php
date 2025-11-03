@@ -19,6 +19,28 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
+
+    <nav aria-label="Navigation" role="navigation" style="height: 10vh"
+         class="navbar navbar-light bg-light fixed-top w-100 d-flex justify-content-center align-content-center">
+
+        <div style="padding-left:2rem" class="row w-100 d-flex">
+            <div class="col-4 col-md-12 d-flex justify-content-md-end align-content-center">
+                <h1 aria-label="New Journey" style="letter-spacing: 0.5rem"
+                    class="navbar-brand navbar-light text-uppercase text-dark m-auto">New Journey</h1>
+            </div>
+
+            <div class="col-8 d-flex justify-content-end">
+                <button aria-label="Menü" class="d-md-none btn btn-light bg-light" type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#burger-buttons" aria-controls="burger-buttons-tab">
+                    <span class="navbar-toggler-icon navbar-toggler navbar-light"></span>
+                </button>
+            </div>
+            <?php include 'components/burger_window.php'; ?>
+        </div>
+
+        <?php /*TODO: login and register button */ ?>
+    </nav>
 </head>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -26,23 +48,3 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
         crossorigin="anonymous"></script>
 
 <body class="d-flex flex-column min-vh-100">
-
-<nav aria-label="Navigation" role="navigation" style="height: 10vh"
-     class="navbar navbar-light bg-light fixed-top w-100 d-flex justify-content-center align-content-center">
-
-    <div class="row w-100">
-        <div class="col-10 col-md-12 d-flex justify-content-end align-content-center">
-             <h1 aria-label="New Journey" style="letter-spacing: 0.5rem" class="navbar-brand navbar-light text-uppercase text-dark m-auto">New Journey</h1>
-        </div>
-
-        <div class="col-2">
-            <button aria-label="Menü" class="d-md-none btn btn-light bg-light" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#burger-buttons" aria-controls="burger-buttons-tab">
-                <span class="navbar-toggler-icon navbar-toggler navbar-light"></span>
-            </button>
-        </div>
-    </div>
-
-    /*TODO: login and register button */
-    <?php include 'components/burger_window.php'; ?>
-</nav>
