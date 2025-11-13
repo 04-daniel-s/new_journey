@@ -1,5 +1,5 @@
 <div class="row px-2 w-100 d-flex justify-content-center">
-    <div class="col-12 col-sm-10 col-md-8 col-lg-8 col-xl-6">
+    <div class="col-12 col-sm-10">
         <form method="GET" class="input-group">
             <label for="search-loc" class="input-group-text bi-caret-right-fill"></label>
             <input aria-label="Suchleiste" id="search-loc" class="p-2 form-control" type="text" name="search-loc" placeholder="Ort der Reise...">
