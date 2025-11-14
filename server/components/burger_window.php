@@ -3,8 +3,8 @@
         <h5 aria-label="Kontoübersicht" class="offcanvas-title text-white" id="burger-buttons-tab">Konto</h5>
         <button aria-label="Übersicht schließen" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
-    <div class="offcanvas-body bg-light d-flex flex-column gap-5">
+    <form action="/signin" method="POST" class="offcanvas-body bg-light d-flex flex-column gap-5">
         <button aria-label="Anmelden" class="btn btn-outline-secondary">Anmelden</button>
-        <button aria-label="Konto erstellen" class="btn btn-outline-secondary">Registrieren</button>
-    </div>
+        <button aria-label="Konto erstellen" href="/signin" class="btn btn-outline-secondary">Registrieren</button>
+    </form>
 </div>

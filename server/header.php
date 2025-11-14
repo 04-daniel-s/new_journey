@@ -21,18 +21,20 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
     <link rel="stylesheet" href="style.css">
 
     <nav aria-label="Navigation" role="navigation" style="height: 10vh"
-         class="navbar navbar-light bg-light fixed-top w-100 d-flex justify-content-center align-content-center">
+         class="navbar navbar-light bg-light fixed-top w-100 d-flex justify-content-center align-content-center bg-opacity-75">
 
         <div style="padding-left:2rem" class="row w-100 d-flex">
-            <div class="col-4 col-md-6 d-flex justify-content-md-end align-content-center">
+            <a style="text-decoration: none" href="/" class="col-4 col-md-6 d-flex justify-content-md-end align-content-center">
                 <h1 aria-label="New Journey" style="letter-spacing: 0.5rem"
-                    class="navbar-brand navbar-light text-uppercase text-dark m-auto">New Journey</h1>
-            </div>
+                    class="navbar-brand navbar-light text-uppercase text-dark m-auto">
+                        New Journey
+                </h1>
+            </a>
 
-            <div class="d-none col-md-6 d-md-flex justify-content-end px-5 gap-3">
-                <button class="btn btn-dark">Anmelden</button>
-                <button class="btn btn-dark">Registrieren</button>
-            </div>
+            <form action="/signin" method="POST" class="d-none col-md-6 d-md-flex justify-content-end px-5 gap-3">
+                <button aria-label="Anmelden" class="btn btn-dark">Anmelden</button>
+                <button aria-label="Registrieren" class="btn btn-dark">Registrieren</button>
+            </form>
 
             <div class="col-8 d-flex justify-content-end">
                 <button aria-label="Menü" class="d-md-none btn btn-light bg-light" type="button"
@@ -41,10 +43,8 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
                     <span class="navbar-toggler-icon navbar-toggler navbar-light"></span>
                 </button>
             </div>
-            <?php include 'components/burger_window.php'; ?>
+            <?php require 'components/burger_window.php'; ?>
         </div>
-
-        <?php /*TODO: login and register button */ ?>
     </nav>
 </head>
 

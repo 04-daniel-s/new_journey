@@ -1,4 +1,4 @@
-<footer class="container-fluid mt-5 bg-light border-top">
+<footer class="container-fluid bg-light border-top">
     <div class="py-3 px-5">
         <?php
         $footer = "&copy " . date("Y") . " New Journey";
