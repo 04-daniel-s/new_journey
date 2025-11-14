@@ -22,10 +22,10 @@
          class="w-100 text-uppercase d-flex align-content-enter justify-content-center">Bist du neu?
     </div>
 
-    <div class="px-5 d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-around w-100 mt-5 gap-5">
+    <section class="px-5 d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-around w-100 mt-5 gap-5">
         <?php for ($j = 0; $j < 3; $j++) {
             include 'components/appartment_card.php';
         } ?>
-    </div>
+    </section>
 </div>
 
