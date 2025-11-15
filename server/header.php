@@ -24,10 +24,11 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
          class="navbar navbar-light bg-light fixed-top w-100 d-flex justify-content-center align-content-center bg-opacity-75">
 
         <div style="padding-left:2rem" class="row w-100 d-flex">
-            <a style="text-decoration: none" href="/" class="col-4 col-md-6 d-flex justify-content-md-end align-content-center">
+            <a style="text-decoration: none" href="/"
+               class="col-4 col-md-6 d-flex justify-content-md-end align-content-center">
                 <h1 aria-label="New Journey" style="letter-spacing: 0.5rem"
                     class="navbar-brand navbar-light text-uppercase text-dark m-auto">
-                        New Journey
+                    New Journey
                 </h1>
             </a>
 

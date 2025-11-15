@@ -1,7 +1,7 @@
 <main class="d-flex justify-content-center align-items-end pt-5">
     <card style="width: 30rem" class="pt-5 px-4">
         <h3 class="card-text">Einloggen oder Registrieren</h3>
-        <h6 class="text-muted mb-5">Gebe deine E-Mail Adresse an und erhalte Zugriff auf alle Unterkünfte,
+        <h6 class="text-muted mb-5">Gib deine E-Mail Adresse an und erhalte Zugriff auf alle Unterkünfte,
             die für
             deine Reise infrage kommen.</h6>
         <form action="" method="POST" style="height: 5rem">
