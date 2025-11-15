@@ -1,0 +1,6 @@
+<?php
+/*
+ * ONLY DATABASE (REPOSITORY)
+ */
+?>
+

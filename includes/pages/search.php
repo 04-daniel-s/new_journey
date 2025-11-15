@@ -1,20 +1,30 @@
 <?php
-$min_price = 0;
-$max_price = 0;
+require_once __DIR__ . "/../config_session.php";
+require_once __DIR__ . "/../signin/auth_contr.php";
 
-if ($_SERVER['REQUEST_METHOD'] != 'GET') {
-    return;
+if (!isset($_SESSION["user_id"])) {
+    header("location: /signin");
+    die();
 }
 
-if (isset($_GET['min'])) {
-    $min_price = $_GET['min'];
-}
+if ($_SERVER['REQUEST_METHOD'] === "GET") {
+    if (!empty($_GET['location'])) {
+        $searchbar_string = $_GET['location'];
+    } else {
+        header("location: /");
+        die();
+    }
 
-if (isset($_GET['max'])) {
-    $max_price = $_GET['max'];
+    if (isset($_GET['min'])) {
+        $min_price = (int)$_GET['min'];
+    }
 
-    if ($min_price > $max_price) {
-        $max_price = $min_price;
+    if (isset($_GET['max'])) {
+        $max_price = (int)$_GET['max'];
+
+        if ($min_price > $max_price) {
+            $max_price = $min_price;
+        }
     }
 }
 ?>
@@ -22,7 +32,7 @@ if (isset($_GET['max'])) {
 <main class="w-100 h-100 row m-0 justify-content-center pt-3">
     <div class="col-12">
         <?php
-        require __DIR__ . '/components/search_bar.php'
+        require __DIR__ . '/../components/search_bar.php'
         ?>
     </div>
 
@@ -33,13 +43,15 @@ if (isset($_GET['max'])) {
                     <h5 class="text-white text-muted">Budget</h5>
                     <div class="input-group input-group-sm mb-1">
                         <label class="col-4 input-group-text" for="filter-min">Minimum</label>
-                        <input type="number" class="col-4 form-control" id="filter-min" value="<?php echo $min_price; ?>">
+                        <input type="number" class="col-4 form-control" id="filter-min"
+                               value="<?php echo $min_price; ?>">
                         <span class="col-2 input-group-text">€</span>
                     </div>
 
                     <div class="input-group input-group-sm mb-1">
                         <label class="col-4 input-group-text" for="filter-max">Maximum</label>
-                        <input type="number" class="col-4 form-control" id="filter-max" value="<?php echo $max_price; ?>">
+                        <input type="number" class="col-4 form-control" id="filter-max"
+                               value="<?php echo $max_price; ?>">
                         <span class="col-2 input-group-text">€</span>
                     </div>
                 </section>
@@ -49,8 +61,8 @@ if (isset($_GET['max'])) {
                     <?php
                     for ($k = 1; $k <= 5; $k++) {
                         ?>
-                        <div class="input-group input-group-sm mb-1 d-flex flex-row justify-content-between">
-                            <input style="width: 15%;" type="checkbox" id="filter-min">
+                        <div class="input-group input-group-sm mb-1 d-flex flex-row justify-content-between gap-1">
+                            <input style="width: 15%;" type="checkbox" id="filter-min" class="form-check-input h-auto">
                             <label style="width: 80%;" class="input-group-text"
                                    for="filter-min"><?php echo "$k " . ($k > 1 ? "Sterne" : "Stern") ?></label>
                         </div>
@@ -66,7 +78,7 @@ if (isset($_GET['max'])) {
             <section style="background-color: #f8fafc;"
                      class="d-flex w-100 gap-3 flex-wrap border border-light justify-content-center p-3">
                 <?php for ($l = 0; $l < 10; $l++) {
-                    require __DIR__ . '/components/appartment_card.php';
+                    require __DIR__ . '/../components/appartment_card.php';
                 } ?>
 
             </section>

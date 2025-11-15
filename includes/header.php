@@ -1,4 +1,12 @@
 <?php
+require_once "config_session.php";
+require_once "signin/auth_contr.php";
+
+if(isset($_POST["logout"])) {
+    logout();
+    die();
+}
+
 $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey';
 ?>
 
@@ -32,10 +40,16 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
                 </h1>
             </a>
 
-            <form action="/signin" method="POST" class="d-none col-md-6 d-md-flex justify-content-end px-5 gap-3">
-                <button aria-label="Anmelden" class="btn btn-dark">Anmelden</button>
-                <button aria-label="Registrieren" class="btn btn-dark">Registrieren</button>
-            </form>
+            <?php if (!isset($_SESSION["user_id"])) {
+                require 'components/header_form.php';
+            } else { ?>
+                <form action="/" method="POST" class="d-none col-md-6 d-md-flex justify-content-end px-5 gap-3">
+                    <input id="logout" name="logout" value="1" hidden="hidden">
+                    <button type="submit" aria-label="Abmelden" class="btn btn-dark">Abmelden</button>
+                </form>
+                <?php
+            }
+            ?>
 
             <div class="col-8 d-flex justify-content-end">
                 <button aria-label="Menü" class="d-md-none btn btn-light bg-light" type="button"
