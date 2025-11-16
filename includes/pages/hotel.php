@@ -62,7 +62,7 @@
                 no
                 sea takimata sanctus est Lorem ipsum dolor sit amet.</h6>
         </section>
-        <section class="py-5">
+        <section class="py-5 border-bottom border-light">
             <section>
                 <h2 class="h2">Bewertungen</h2>
                 <h6 class="h6 text-muted pb-5">
@@ -105,7 +105,7 @@
             </div>
         </section>
         <section>
-            <div class="mb-4">
+            <div class="py-5">
                 <h2 class="h2">Bestellung abschließen</h2>
                 <h6 class="h6 text-muted">Im Folgenden hast du die Möglichkeit, diese Unterkunft in Anspruch zu
                     nehmen.</h6>
