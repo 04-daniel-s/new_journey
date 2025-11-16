@@ -18,7 +18,6 @@ if (isset($_SESSION["signup"]["email"])) {
             $_SESSION["user_id"] = 1; //TODO: fetch from database
             header("location: /homepage");
         }
-        die();
     }
 } else {
     header("location: signin");
@@ -31,7 +30,7 @@ if (isset($_SESSION["signup"]["email"])) {
         <h3 class="card-text">Einloggen</h3>
         <h5 class="text-muted fs-6 mb-5">Gib dein Passwort und deine E-Mail Adresse an und erhalte Zugriff auf alle
             Unterkünfte, die für deine Reise infrage kommen.</h5>
-        <form action="" method="POST" style="height: 5rem">
+        <form novalidate action="" method="POST" style="height: 5rem">
             <div class="search-bar-sub-container">
                 <label for="login-email" class="search-bar-label">E-Mail</label>
                 <input required disabled aria-label="Suchleiste" id="login-email"
@@ -43,7 +42,7 @@ if (isset($_SESSION["signup"]["email"])) {
             <div class="search-bar-sub-container mt-3">
                 <label for="login-password" class="search-bar-label">Passwort</label>
                 <input required aria-label="Suchleiste" id="login-password"
-                       class="h-100 position-absolute form-control rounded-0"
+                       class="h-100 position-absolute form-control rounded-0 <?php if(isset($password) && !isCorrectPassword($password)) echo "is-invalid"?>"
                        type="password" name="password"
                        placeholder="Passwort angeben">
             </div>

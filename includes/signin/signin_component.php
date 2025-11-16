@@ -3,8 +3,10 @@ require_once __DIR__ . "/../config_session.php";
 require_once __DIR__ . "/../signin/auth_contr.php";
 
 $valid = true;
+$email = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["email"])) {
+    $email = htmlspecialchars($_POST["email"]);
     $valid = isValidEmail($_POST["email"]);
 }
 ?>
@@ -21,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["email"])) {
                 <input required aria-label="Suchleiste" id="signin-email"
                        class="h-100 position-absolute form-control rounded-0 <?php if (!$valid) echo "is-invalid" ?>"
                        type="email" name="email"
-                       value="<?php if (isset($_SESSION["signup"]["email"])) echo $_SESSION["signup"]["email"] ?>"
+                       value="<?php echo $email?>"
                        placeholder="mustermann@example.com">
             </div>
 
