@@ -22,7 +22,7 @@
                 <h6 style="font-size: 0.8rem" class="text-end fw-bold">5912 Bewertungen</h6>
             </div>
         </div>
-        <a style="text-decoration: none;" href="#searchbar" class="d-flex justify-content-center p-3">
+        <a style="text-decoration: none;" href="/hotel" class="d-flex justify-content-center p-3">
             <button aria-label="Unterkunft aussuchen" class="btn bg-dark btn-outline-dark text-white">
                 Auswählen
             </button>
