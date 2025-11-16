@@ -17,6 +17,8 @@ require __DIR__ . '/../includes/header.php';
             require __DIR__ . '/../includes/pages/login.php';
         } elseif ($path === 'search') {
             require __DIR__ . '/../includes/pages/search.php';
+        } elseif ($path === 'hotel') {
+            require __DIR__ . '/../includes/pages/hotel.php';
         } else {
             require __DIR__ . '/../includes/pages/homepage.php';
         }
