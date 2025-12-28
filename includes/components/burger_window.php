@@ -8,7 +8,7 @@ require_once __DIR__ . "/../config_session.php";
         <button aria-label="Übersicht schließen" type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
 
-    <?php if (!isset($_SESSION["user_id"])) {
+    <?php if (!isset($_SESSION["user"]["id"])) {
         require 'header_form_mobile.php';
     } else {
     ?>

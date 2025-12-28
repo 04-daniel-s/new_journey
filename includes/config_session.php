@@ -6,14 +6,13 @@ session_set_cookie_params([
     'lifetime' => 1800,
     'domain' => 'localhost',
     'path' => '/',
-    //NUR BEI HTTPS 'secure' => true,
     'httponly' => true,
 ]);
 
 session_start();
 
 function regenerateSession() {
-    session_regenerate_id(true); //LV 8
+    session_regenerate_id(true);
     $_SESSION["last_regeneration"] = time();
 }
 

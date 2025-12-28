@@ -2,8 +2,8 @@
 require_once __DIR__ . "/../config_session.php";
 require_once __DIR__ . "/../signin/auth_contr.php";
 
-if (isset($_SESSION["user_id"])) {
-    header("location: homepage.php");
+if (isset($_SESSION["user"]["id"])) {
+    header("location: homepage");
     die();
 }
 
@@ -14,9 +14,8 @@ if (isset($_SESSION["signup"]["email"])) {
         $password = trim($_POST['password'], PASSWORD_BCRYPT);
 
         if (isCorrectPassword($password)) {
-            regenerateSession();
-            $_SESSION["user_id"] = 1; //TODO: fetch from database
-            header("location: /homepage");
+            login($email, $password);
+            header("location: homepage");
         }
     }
 } else {

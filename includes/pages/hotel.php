@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../config_session.php";
 
-if (!isset($_SESSION["user_id"])) {
+if (!isset($_SESSION["user"]["id"])) {
     header("location: /login");
     die();
 }

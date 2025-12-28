@@ -4,7 +4,7 @@ require_once "signin/auth_contr.php";
 
 if(isset($_POST["logout"])) {
     logout();
-    die();
+    exit();
 }
 
 $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey';
@@ -40,7 +40,7 @@ $title = isset($pageTitle) && is_string($pageTitle) ? $pageTitle : 'New Journey'
                 </h1>
             </a>
 
-            <?php if (!isset($_SESSION["user_id"])) {
+            <?php if (!isset($_SESSION["user"]["id"])) {
                 require 'components/header_form.php';
             } else { ?>
                 <form action="/" method="POST" class="d-none col-md-6 d-md-flex justify-content-end px-5 gap-3">

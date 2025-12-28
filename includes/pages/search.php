@@ -2,7 +2,7 @@
 require_once __DIR__ . "/../config_session.php";
 require_once __DIR__ . "/../signin/auth_contr.php";
 
-if (!isset($_SESSION["user_id"])) {
+if (!isset($_SESSION["user"["id"]])) {
     header("location: /signin");
     die();
 }

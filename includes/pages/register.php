@@ -1,42 +1,60 @@
 <?php
 require_once __DIR__ . "/../config_session.php";
 
-if (isset($_SESSION["user_id"])) {
-    header("location: homepage.php");
-    die();
+if (isset($_SESSION["user"])) {
+    header("location: homepage");
+    exit();
 }
 
-if (isset($_SESSION["signup"]["email"])) {
-    $email = $_SESSION["signup"]["email"];
-    $username = "";
+if (!isset($_SESSION["signup"]["email"])) {
+    header("location: signin");
+    exit();
+}
 
+$email = $_SESSION["signup"]["email"];
+$username = "";
+$success = false;
+$error = null;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["name"])) {
         $username = trim($_POST["name"]);
         $_SESSION["signup"]["name"] = $username;
     }
 
     if (isUsernameTaken($username)) {
-        die();
-    }
+        $error = "Dieser Benutzername ist bereits vergeben.";
+    } else if (!preg_match("/^[a-zA-Z0-9 ]+$/", $username)) {
+        $error = "Der Benutzername darf nur aus Buchstaben und Zahlen bestehen.";
+    } else {
+        if (isset($_POST["password"])) {
+            $password = trim($_POST["password"]);
+            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        }
 
-    if (isset($_POST["password"])) {
-        $password = trim($_POST["password"]);
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        //TODO: STORE IN DB
+        if (isset($hashed_password) && isset($email)) {
+            createUser($email, $hashed_password, $username);
+            $success = true;
+        }
     }
-
-    createUser();
-} else {
-    header("location: signin");
-    die();
 }
 ?>
-
 <div class="w-100 d-flex justify-content-center align-items-end pt-5">
     <card style="width: 30rem" class="pt-5 px-4">
         <h3 class="card-text">Registrieren</h3>
         <h5 class="text-muted fs-6 mb-5">Registriere dich mit deinen Daten und erhalte Zugriff auf alle Unterkünfte, die
             für deine Reise infrage kommen.</h5>
+        <?php if ($success): ?>
+            <div class="alert alert-info mb-3" role="status">
+                Dein Account wurde erfolgreich erstellt. Du kannst dich jetzt anmelden.
+            </div>
+        <?php endif; ?>
+
+        <?php if ($error): ?>
+            <div class="alert alert-danger mb-3" role="alert">
+                <?php echo htmlspecialchars($error); ?>
+            </div>
+        <?php endif; ?>
         <form action="" method="POST" style="height: 5rem">
             <div class="search-bar-sub-container">
                 <label for="register-email" class="search-bar-label">E-Mail</label>
@@ -50,7 +68,7 @@ if (isset($_SESSION["signup"]["email"])) {
                 <label for="register-name" class="search-bar-label">Name</label>
                 <input required aria-label="Suchleiste" id="register-name"
                        class="h-100 position-absolute form-control rounded-0"
-                       type="email" name="name"
+                       name="name"
                        placeholder="Max Mustermann">
             </div>
 
